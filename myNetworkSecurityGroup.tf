@@ -1,7 +1,7 @@
-resource "azurerm_network_security_group" "user15nsg" {
-    name                = "user15nsg"
-    location            = azurerm_resource_group.user15-rg-project.location
-    resource_group_name = azurerm_resource_group.user15-rg-project.name
+resource "azurerm_network_security_group" "user04nsg" {
+    name                = "user04nsg"
+    location            = azurerm_resource_group.user04-rg-project.location
+    resource_group_name = azurerm_resource_group.user04-rg-project.name
     
     security_rule {
         name                       = "SSH"
@@ -11,7 +11,7 @@ resource "azurerm_network_security_group" "user15nsg" {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
-        source_address_prefix      = "20.194.49.115"
+        source_address_prefix      = "52.141.62.18"
         destination_address_prefix = "*"
     }
  security_rule {

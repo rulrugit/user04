@@ -11,5 +11,5 @@ sudo apt-get install -y apache2
 
 echo "<html>" > /var/www/html/index.html   ## 리다이렉션 반드시 한개로
 echo "Hello World from $(hostname -f)" >> /var/www/html/index.html
-echo "<img src="https://user15cdn.azureedge.net/img/azure.png">" >> /var/www/html/index.html 
+echo "<img src="https://user04cdn.azureedge.net/img/a.jpg>" >> /var/www/html/index.html 
 echo "</html>" >> /var/www/html/index.html 

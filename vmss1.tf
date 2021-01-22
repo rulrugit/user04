@@ -1,7 +1,7 @@
-resource "azurerm_virtual_machine_scale_set" "user15vmss1" {
-name = "user15vmss1"
-location = azurerm_resource_group.user15-rg-project.location
-resource_group_name = azurerm_resource_group.user15-rg-project.name
+resource "azurerm_virtual_machine_scale_set" "user04vmss1" {
+name = "user04vmss1"
+location = azurerm_resource_group.user04-rg-project.location
+resource_group_name = azurerm_resource_group.user04-rg-project.name
 
 upgrade_policy_mode = "Manual"
 
@@ -31,8 +31,8 @@ storage_profile_data_disk {
     disk_size_gb = 10
 }
 os_profile {
-    computer_name_prefix = "user15vm1"
-    admin_username = "user15"  ## VM 에 접속할 계정
+    computer_name_prefix = "user04vm1"
+    admin_username = "user04"  ## VM 에 접속할 계정
     custom_data = file("web.sh")
 }
 
@@ -50,7 +50,7 @@ os_profile {
 os_profile_linux_config {
 disable_password_authentication = true
 ssh_keys {
-    path = "/home/user15/.ssh/authorized_keys"   ## pwd 실행후 경로설정 ex) /home/user01 등 
+    path = "/home/user04/.ssh/authorized_keys"   ## pwd 실행후 경로설정 ex) /home/user01 등 
     key_data = file("~/.ssh/id_rsa.pub")  ## Public Key는 VMSS 실행 전에 미리 터미널에서 ssh-keygen 으로 생성 (엔터 3번) 
     }
 }
@@ -76,11 +76,11 @@ network_profile {
         ip_configuration {
         name = "TestIPConfiguration1"
         primary = true
-        subnet_id = azurerm_subnet.user15-subnet1.id
-        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.user15-bpepool1.id]
+        subnet_id = azurerm_subnet.user04-subnet1.id
+        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.user04-bpepool1.id]
         load_balancer_inbound_nat_rules_ids = [azurerm_lb_nat_pool.lbnatpool1.id]
     }
-        network_security_group_id = azurerm_network_security_group.user15nsg.id
+        network_security_group_id = azurerm_network_security_group.user04nsg.id
 }
 tags = {
     environment = "staging"

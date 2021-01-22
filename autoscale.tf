@@ -1,8 +1,8 @@
-resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss1" {
-  name                = "user15-autoscale-vmss1"
-  resource_group_name = azurerm_resource_group.user15-rg-project.name
-  location            = azurerm_resource_group.user15-rg-project.location
-  target_resource_id  = azurerm_virtual_machine_scale_set.user15vmss1.id
+resource "azurerm_monitor_autoscale_setting" "user04-autoscale-vmss1" {
+  name                = "user04-autoscale-vmss1"
+  resource_group_name = azurerm_resource_group.user04-rg-project.name
+  location            = azurerm_resource_group.user04-rg-project.location
+  target_resource_id  = azurerm_virtual_machine_scale_set.user04vmss1.id
 
   profile {
     name = "defaultProfile"
@@ -16,7 +16,7 @@ resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss1" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_virtual_machine_scale_set.user15vmss1.id
+        metric_resource_id = azurerm_virtual_machine_scale_set.user04vmss1.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT5M"
@@ -42,7 +42,7 @@ resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss1" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_virtual_machine_scale_set.user15vmss2.id
+        metric_resource_id = azurerm_virtual_machine_scale_set.user04vmss2.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT5M"
@@ -61,11 +61,11 @@ resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss1" {
   }
 }
 
-resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss2" {
-  name                = "user15-autoscale-vmss2"
-  resource_group_name = azurerm_resource_group.user15-rg-project.name
-  location            = azurerm_resource_group.user15-rg-project.location
-  target_resource_id  = azurerm_virtual_machine_scale_set.user15vmss2.id
+resource "azurerm_monitor_autoscale_setting" "user04-autoscale-vmss2" {
+  name                = "user04-autoscale-vmss2"
+  resource_group_name = azurerm_resource_group.user04-rg-project.name
+  location            = azurerm_resource_group.user04-rg-project.location
+  target_resource_id  = azurerm_virtual_machine_scale_set.user04vmss2.id
 
   profile {
     name = "defaultProfile"
@@ -79,7 +79,7 @@ resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss2" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_virtual_machine_scale_set.user15vmss2.id
+        metric_resource_id = azurerm_virtual_machine_scale_set.user04vmss2.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT5M"
@@ -105,7 +105,7 @@ resource "azurerm_monitor_autoscale_setting" "user15-autoscale-vmss2" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_virtual_machine_scale_set.user15vmss2.id
+        metric_resource_id = azurerm_virtual_machine_scale_set.user04vmss2.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT5M"
